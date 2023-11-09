@@ -1,2 +1,2 @@
-blog : https: //ewebik.com/react-js/usereducer
-video: https: //www.youtube.com/watch?v=MqA3cwueF24
+blog : https://ewebik.com/react-js/usereducer
+video: https://www.youtube.com/watch?v=MqA3cwueF24

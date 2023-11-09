@@ -5,7 +5,7 @@ import './index.css'
 import Counter from './Counter.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Counter/>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )

@@ -1,22 +1,15 @@
 import React, {useState} from 'react'
-import Validation from '../helpers/Validation'
-
-    
+import useForm from '../hooks/useForm';    
 
     const Form = () => {
 
-        const initialState = [{
+        const initialState = {
             add_subtract: false,
-            number      : 10
-        }];
+            number      : 15
+        };
 
-        const [data, setData] = useState(initialState);
-        const {number, add_subtract} = data;
-        console.log(data)
-        console.log(number)
-
-        const {handleChangeNumber, handleCheck}  = Validation();
-
+        const {add_subtract, number,  handleChangeNumber, handleCheck}  = useForm(initialState);
+        
         const handleSubmit = (event) => {
             event.preventDefault()
             console.log(event.target.name)
@@ -29,7 +22,7 @@ import Validation from '../helpers/Validation'
                     <input type="checkbox"
                             name='add_subtract'
                             value={add_subtract}
-                            // onChange={handleCheck}
+                            onChange={handleCheck}
                             />
                 </div>
                 <div>
@@ -37,7 +30,7 @@ import Validation from '../helpers/Validation'
                         placeholder='Enter Number'
                         name='number'
                         value={number}
-                        // onChange={handleChangeNumber}
+                        onChange={handleChangeNumber}
                     />
                 </div>
                 <button>Incrementar/decrementar</button>
