@@ -6,22 +6,27 @@ const useForm = (initialState) => {
   //We can do this code with useState but we can do with useReducer
   // const [data, setData] = useState(initialState);
 
-  const [state, dispatch] = useReducer(reducer,initialState)
+  const [state, dispatch] = useReducer(reducer,initialState);
 
-  console.log('The state data',state)
-  
-
-  const handleCheck = () => {
-    
+  const handleChangeCount = (e) => {
+    console.log('yeah', e.target.value)
   }
-  const handleChangeNumber = () => {
 
+  const handleUpdateCheck = (event) => {
+  }
+
+  const handleUpdateNumber = (event) => {
+  }
+
+  const handleRestarForm = (event) => {
   }
 
   return {
     ...state,
-    handleCheck,
-    handleChangeNumber
+    handleChangeCount,
+    handleUpdateNumber,
+    handleUpdateCheck,
+    handleRestarForm
   }
 }
 
