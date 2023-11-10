@@ -22,11 +22,28 @@ a {
 a:hover {
   color: #535bf2;
 }
+div{
+  
+  justify-content: center;
+}
+input{
+  padding      : 10px;
+  border-radius: 8px ;
+  color        : black;
+  background: white;
+}
+input:hover{
+  background: black;
+  color:   #646cff;
+  border-color: #646cff;
+  
+}
 
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  /* place-items: center; */
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
