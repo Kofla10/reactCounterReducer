@@ -9,47 +9,70 @@ const initialData = {
 
 const CounterReducer = () => {
 
-    const [state, dispatch] = useReducer(reducer2, initialData)
-    console.log('the data is: ',state);
-
-    const handleCount = (e) => {
-        console.log('send form')
-    }
+    const [state, dispatch] = useReducer(reducer2, initialData);
 
     const handleCheck = (e) => {
-        const action = {
-            type: "ADD", 
-             
-        }
-        console.log('change check')
+        const {checked} = e.target;
+
+        dispatch({
+            type:"CHECK",
+            increment:checked
+        });
+
     }
+
     const handleInterval = (e) => {
-        console.log('change interval')
+        const {value} = e.target;
+
+        dispatch({
+            type: "CHANGE_INCREMENT",
+            value: value
+        })
+
     }
+
     const handleRestar = (e) => {
         console.log('restart form');
-        const action = {
-            type: ""           
-             
+
+        dispatch({
+            type: "RETURN"
+        })
+    }
+
+    const handleCount = () => {
+        if(state.increment){
+            dispatch({
+                type     : "ADD",
+                count    : state.count,
+                increment: state.countInterval
+            })
+        } else{
+            dispatch({
+                type     : "SUBTRA",
+                count    : state.count,
+                increment: state.countInterval
+            })
         }
-        dispatch(action)
     }
 
     return (
         <>
-            <h1>Hook useREduver { state.count }</h1>
+            <h1>Hook useReducer { state.count }</h1>
             <div>
-                <input type="checkbox" 
-                    id='incremet'
-                    defaultChecked = {state.increment}
-                       onChange={handleCheck}
+                <input
+                    type     = "checkbox"
+                    id       = 'chk'
+                    checked  = {state.increment}
+                    onChange = {handleCheck}
                     />
             </div>
             <div>
-                <input type="number" 
-                    id='countInterval'
-                    placeholder='Interval'
-                       onChange={handleInterval}
+                <input
+                    type        = "number"
+                    id          = 'interval'
+                    value       = {state.countInterval}
+                    placeholder = 'Interval'
+                    onChange    = {handleInterval}
                 />
             </div>
             <div>

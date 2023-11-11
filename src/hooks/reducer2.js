@@ -1,13 +1,14 @@
 import React from 'react'
 
 const reducer2 = (initialData = {}, action) => {
+
     switch (action.type) {
-        case "ADD": 
+        case "ADD":
             return {
                 ...initialData,
                 count: action.count + action.increment
             }
-        case "SUBTRA": 
+        case "SUBTRA":
             return {
                 ...initialData,
                 count: action.count - action.increment
@@ -15,10 +16,19 @@ const reducer2 = (initialData = {}, action) => {
         case "CHECK":
             return {
                 ...initialData,
-                increment: !action.increment
+                increment: action.increment
             }
-        default: 
-            return initialData
+        case "CHANGE_INCREMENT":
+            return {
+                ...initialData,
+                countInterval: action.value
+            }
+        case "RETURN":
+            return {
+                initialData
+            }
+        default:
+            return initialData;
     }
 }
 
