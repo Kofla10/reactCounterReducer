@@ -9,16 +9,46 @@ const useForm = (initialState) => {
   const [state, dispatch] = useReducer(reducer,initialState);
 
   const handleChangeCount = (e) => {
-    console.log('yeah', e.target.value)
+    const { id } = e.target;
+
+    let action = {};
+    console.log(state)
+    if(id == "ADD") {
+      action = {
+        type  : "ADD",
+        count : state.count,
+        number: state.number
+      }
+    } else{
+      action = {
+        type  : "SUBTRACT",
+        data : state,
+        number: state.number
+      }
+    }
+    dispatch(action);
   }
 
-  const handleUpdateCheck = (event) => {
+  const handleUpdateCheck = (e) => {
+    const {checked} = e.target;
+    const action = {
+      type        : "CHANGE_CHECK",
+      add_subtract: checked
+    }
+    dispatch(action)
   }
 
-  const handleUpdateNumber = (event) => {
+  const handleUpdateNumber = (e) => {
+    const {value} = e.target;
+    const action = {
+      type  : "CHANGE_NUMBER",
+      number: value
+    }
+    dispatch(action);
   }
 
-  const handleRestarForm = (event) => {
+  const handleRestarForm = () => {
+    console.log('Restart')
   }
 
   return {

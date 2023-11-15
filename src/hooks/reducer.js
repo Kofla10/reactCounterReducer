@@ -1,17 +1,36 @@
-import React from 'react'
-
 const reducer = (initialState, action) => {
 
-  switch (action.type) {
-    case "ADD":
-      break;
+    switch (action.type) {
+      case "CHANGE_CHECK":
+        return{
+          ...initialState,
+          add_subtract: action.add_subtract
+        }
+      case "CHANGE_NUMBER":
+        return {
+          ...initialState,
+          number: action.number
+        }
+      case "ADD":
+        return {
+          ...initialState,
+          count: action.count+action.number
+
+        }
 
       case "SUBTRACT":
-      break;
+        return {
+          ...initialState,
+          count: (action.count - action.number)
+        }
+      case "RESTART":
+          return {
+            initialState
+          }
 
-    default:
-      initialState;
-  }
+      default:
+        initialState;
+    }
 
 }
 
